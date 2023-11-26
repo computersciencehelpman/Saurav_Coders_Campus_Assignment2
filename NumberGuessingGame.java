@@ -27,20 +27,20 @@ public class NumberGuessingGame {
 				break;
 			}
 			
-			if(userGuess <1 || userGuess > 100) { //check if the guess is within bounds
+			else if(userGuess <1 || userGuess > 100) { //check if the guess is within bounds
 				System.out.println("Your guess is not between 1 and 100, please try again: ");
 				userGuess = scan.nextInt();
 
 			}
 			
-			if(userGuess > theRandomNumber) {
+			else if(userGuess > theRandomNumber) {
 				numGuesses--;
 				System.out.println("You have "+(numGuesses+1)+" guesses left.");
 				System.out.println("Please pick a lower number");
 				userGuess = scan.nextInt();
 			}
 			
-			if(userGuess < theRandomNumber) {
+			else if(userGuess < theRandomNumber) {
 				numGuesses--;
 				System.out.println("You have "+(numGuesses+1)+" guesses left.");
 				System.out.println("Please pick a higher number");
