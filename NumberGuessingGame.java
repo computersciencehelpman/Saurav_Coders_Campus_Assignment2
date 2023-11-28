@@ -20,17 +20,19 @@ public class NumberGuessingGame {
 		System.out.println("Enter a number between 1 and 100: ");
 		userGuess = scan.nextInt();
 		
-		while(numGuesses > 0) {
+		while(numGuesses >= 0) {
 			
-			if(userGuess == theRandomNumber) { //The user wins if they guess the right number
-				System.out.println("You win!");
-				break;
-			}
 			
-			else if(userGuess <1 || userGuess > 100) { //check if the guess is within bounds
+			
+			 if(userGuess <1 || userGuess > 100) { //check if the guess is within bounds
 				System.out.println("Your guess is not between 1 and 100, please try again: ");
 				userGuess = scan.nextInt();
 
+			}
+			 
+			else if(userGuess == theRandomNumber) { //The user wins if they guess the right number
+				System.out.println("You win!");
+				break;
 			}
 			
 			else if(userGuess > theRandomNumber) {
@@ -46,10 +48,27 @@ public class NumberGuessingGame {
 				System.out.println("Please pick a higher number");
 				userGuess = scan.nextInt();
 			}
-			if(numGuesses == 0) {
+			 if(userGuess != 0 && numGuesses == 0) {
 				System.out.println("You have 0 guesses left.");				
 				System.out.println("You lose, the number to guess was "+theRandomNumber);
-			}
+				break;
+			 }
+			 if(numGuesses ==0) {
+				 while(userGuess <1 || userGuess > 100 ) {
+					  System.out.println("Your guess is not between 1 and 100, please try again: ");
+					userGuess = scan.nextInt();
+				 }
+				
+					if(userGuess == theRandomNumber) {
+						System.out.println("You win!");
+						break;
+					}
+					if(userGuess >= 1 && userGuess <= 100 && userGuess != theRandomNumber) {
+						System.out.println("You have 0 guesses left.");				
+						System.out.println("You lose, the number to guess was "+theRandomNumber);
+						break;
+					}
+			 }
 			
 		}
 		
